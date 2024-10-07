@@ -1,7 +1,7 @@
 // Classifier Variable
 let classifier;
 // Model URL
-let imageModelURL = "https://teachablemachine.withgoogle.com/models/uhqLnNUt7/";
+let imageModelURL = "https://teachablemachine.withgoogle.com/models/b1_kjgE7x/";
 
 // Video
 let video;
@@ -16,10 +16,10 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(320, 240);
+  createCanvas(windowWidth, windowHeight);
   // Create the video
   video = createCapture(VIDEO);
-  video.size(320, 240);
+  video.size(windowWidth, windowHeight);
   video.hide();
 
   // flippedVideo = ml5.flipImage(video);
@@ -31,20 +31,30 @@ function draw() {
   background(0);
   // Draw the video
   image(video, 0, 0);
-
+  /* 
   // Draw the label
   fill(255);
   textSize(16);
   textAlign(CENTER);
   text(label, width / 2, height - 4);
 
-  textSize(8);
+  //textSize(8);
   textAlign(LEFT);
   text(confiaza, 10, height - 4);
 
+
   if (label == "cara" && confiaza > 0.9) {
-    background(160, 87, 0);
+    filter(INVERT);
+    filter(GRAY);
+    fill(255);
+    textSize(80);
+    textAlign(CENTER);
+    text("el señor de la noche!", width / 2, height / 2);
+  } else {
+    text("impostor", width / 2, height / 2);
+    textSize(80);
   }
+*/
 }
 
 // Get a prediction for the current video frame
